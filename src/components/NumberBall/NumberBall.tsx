@@ -1,11 +1,16 @@
 import React from 'react';
 
-const NumberBall = () => {
+interface Props {
+    number: number;
+}
+
+const NumberBall: React.FC<Props> = ({ number }) => {
     return (
-        <div>
-            
+        <div className="number-ball">
+            <p>{number}</p>
         </div>
     );
 };
+
 
 export default NumberBall;
