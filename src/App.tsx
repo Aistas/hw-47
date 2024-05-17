@@ -2,14 +2,15 @@ import { useState } from 'react'
 import './App.css'
 import NumberBall from "./components/NumberBall/NumberBall";
 
-type NumbersArray = number[];
+type Props = {
+    initialNumbers: number[];
+};
 
-const App: React.FC = () => {
-    const initialNumbers: NumbersArray = [5, 11, 16, 23, 32];
-    const [numbers, setNumbers] = useState<NumbersArray>(initialNumbers);
+const App: React.FC<Props> = ({ initialNumbers }) => {
+    const [numbers, setNumbers] = useState<number[]>(initialNumbers);
 
     const generateNewNumbers = () => {
-        const newNumbers: NumbersArray = [];
+        const newNumbers: number[] = [];
         while (newNumbers.length < 5) {
             const newNumber = Math.floor(Math.random() * 32) + 5;
             if (!newNumbers.includes(newNumber)) {
@@ -21,7 +22,7 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="lottery-app">
+        <div className="app">
             <div className="number-balls">
                 {numbers.map((num) => (
                     <NumberBall key={num} number={num} />
