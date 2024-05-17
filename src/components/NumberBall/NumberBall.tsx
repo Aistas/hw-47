@@ -1,4 +1,5 @@
 import React from 'react';
+import './NumberBall.css';
 
 interface Props {
     number: number;
@@ -7,7 +8,7 @@ interface Props {
 const NumberBall: React.FC<Props> = ({ number }) => {
     return (
         <div className="number-ball">
-            <p>{number}</p>
+            {number}
         </div>
     );
 };
